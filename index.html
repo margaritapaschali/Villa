@@ -9,32 +9,32 @@
       padding: 0;
       font-family: Arial, sans-serif;
     }
-    /* Navigation (προηγούμενο version) */
+
+    /* Navigation */
     header {
-      background-color: #a4b792; /* λαδί μπάρα */
+      background-color: #a4b792;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 10px 24px;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      overflow: visible; /* για να “κρεμάει” το logo */
+      overflow: visible;
     }
     header img {
-      height: 140px;            /* logo μεγάλο */
-      margin-bottom: -30px;     /* κρέμεται κάτω από τη μπάρα */
-      border-radius: 15px;      /* στρογγυλεμένες γωνίες κουτιού */
-      background-color: #fbeec1;/* μπεζ φόντο πίσω από logo */
-      padding: 10px;            /* περιθώριο γύρω από logo */
+      height: 140px;
+      margin-bottom: -30px;
+      border-radius: 15px;
+      background-color: #fbeec1;
+      padding: 10px;
+      margin-right: 40px; /* απόσταση από το μενού */
     }
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 24px;
       align-items: center;
-      justify-content: center;
     }
     nav a {
       text-decoration: none;
@@ -54,7 +54,7 @@
       justify-content: center;
       color: white;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      padding-top: 120px; /* χώρος για τη fixed μπάρα */
+      padding-top: 140px;
     }
     .hero h1 {
       font-size: 3em;
@@ -72,14 +72,27 @@
 
     /* Responsive */
     @media (max-width: 900px) {
+      header {
+        flex-wrap: wrap;
+      }
+      nav {
+        width: 100%;
+        justify-content: center; /* κέντρο σε μικρές οθόνες */
+        margin-top: 10px;
+      }
+      header img {
+        height: 120px;
+        margin-bottom: -20px;
+        margin-right: 0;
+      }
       nav a { font-size: 16px; }
-      header img { height: 120px; margin-bottom: -20px; }
+      .hero { padding-top: 160px; }
     }
-    @media (max-width: 700px) {
-      header { flex-wrap: wrap; }
-      nav { width: 100%; margin-top: 6px; }
-      .hero { padding-top: 130px; }
-      .hero h1 { font-size: 2.2em; }
+
+    @media (max-width: 600px) {
+      nav { gap: 12px; }
+      nav a { font-size: 14px; }
+      .hero h1 { font-size: 2em; }
     }
   </style>
 </head>
