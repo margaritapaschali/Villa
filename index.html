@@ -2,10 +2,82 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <title>Villa Airbnb</title>
+  <title>Inner Glow Villa</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    /* Navigation */
+    header {
+      background-color: #fbeec1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #1E4B3A;
+    }
+
+    /* Hero section */
+    .hero {
+      background: url('herovilla.png') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      padding-top: 80px; /* space for fixed header */
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .hero button {
+      background-color: #fbeec1;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    .hero button:hover {
+      background-color: #e5d8a8;
+    }
+  </style>
 </head>
 <body>
-  <h1>Καλώς ήρθατε στη βίλλα μας!</h1>
-  <p>Αυτή είναι μια απλή σελίδα παρουσίασης για την Airbnb βίλλα.</p>
+  <header>
+    <img src="logovilla.png" alt="Inner Glow Villa Logo">
+    <nav>
+      <a href="#villa">The Villa</a>
+      <a href="#airbnb">Airbnb</a>
+      <a href="#retreats">Retreats</a>
+      <a href="#prices">Prices</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Inner Glow Villa</h1>
+    <button>INQUIRY</button>
+  </section>
 </body>
 </html>
