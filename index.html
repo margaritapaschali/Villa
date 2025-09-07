@@ -14,22 +14,25 @@
 
     /* ===== HEADER ===== */
     header {
-      background-color: #a4b792;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      position: relative;
-    }
+  background-color: #a4b792;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px 22px;   /* + κάτω padding για το τμήμα που εξέχει */
+  position: relative;
+  z-index: 10;
+  overflow: visible;      /* σιγουρεύει ότι δεν κόβεται τίποτα */
+}
 
     .logo-box {
-      background: #fbeec1;
-      padding: 12px 20px;
-      border-radius: 20px;  /* κουρμπαριστές γωνίες */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      position: relative;
-      top: 20px;            /* κάνει το logo να εξέχει */
-    }
+  background: #fbeec1;
+  padding: 12px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  position: relative;
+  top: 20px;              /* κάνει το logo να εξέχει */
+  z-index: 11;            /* ΠΑΝΩ από το hero */
+}
 
     .logo-box img {
       height: 80px;
