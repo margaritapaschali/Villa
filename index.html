@@ -1,248 +1,199 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Inner Glow Villa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* ====== RESET / BASE ====== */
-    html, body { margin:0; padding:0; font-family: Arial, sans-serif; }
-    img { display:block; max-width:100%; height:auto; }
-    a { text-decoration: none; }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 16px;
-      box-sizing: border-box;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      color: #333;
     }
 
-    /* ====== HEADER / NAV ====== */
+    /* ===== HEADER ===== */
     header {
       background-color: #a4b792;
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 1000;
-      overflow: visible;
-    }
-    .header-inner {
       display: flex;
-      align-items: flex-end;
-      padding: 10px 0;
-      gap: 32px;
-    }
-
-    /* Logo */
-    .logo-wrap {
-      background: #fbeec1;
-      border-radius: 16px;
-      padding: 10px 12px;
-      margin-bottom: -28px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    .logo-img { height: 140px; }
-
-    /* ====== MENU (με dropdowns) ====== */
-    nav { flex: 1; }
-    .menu {
-      list-style: none;
-      display: flex;
-      align-items: flex-end;
-      gap: 40px;
-      margin: 0;
-      padding: 0 0 4px 10px;
-      flex-wrap: wrap;
-    }
-    .menu > li {
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
       position: relative;
     }
-     .menu {
-    list-style: none;
-    display: flex;
-    align-items: flex-end;
-    gap: 28px;             /* μικρότερο κενό */
-    margin: 0;
-    padding: 0 0 4px 10px;
-    flex-wrap: nowrap;     /* πάντα σε μια γραμμή */
-  }
-    .menu > li > a:hover,
-    .menu > li:focus-within > a { color: #ffffff; }
+
+    header img {
+      height: 100px;
+      margin-top: 20px; /* κάνει το logo να “βγαίνει” έξω από τη μπάρα */
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: flex-end;
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fbeec1;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
 
     /* Dropdown */
     .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
       display: none;
       position: absolute;
+      top: 100%;
       left: 0;
-      top: calc(100% + 10px);
-      background: #8fa27c;
-      border-radius: 10px;
+      background-color: #a4b792;
+      min-width: 180px;
+      z-index: 1000;
       padding: 10px 0;
-      min-width: 200px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    .menu > li:hover .dropdown,
-    .menu > li:focus-within .dropdown {
+
+    .dropdown-content a {
       display: block;
-    }
-    .dropdown a {
-      display: block;
+      padding: 8px 16px;
       color: #fbeec1;
       font-size: 18px;
-      padding: 10px 16px;
-      white-space: nowrap;
     }
-    .dropdown a:hover { background: rgba(255,255,255,0.08); color: #fff; }
 
-    /* ====== HERO ====== */
+    .dropdown-content a:hover {
+      background-color: #8fa273;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ===== HERO ===== */
     .hero {
-      background: url('villahero.png') no-repeat center center/cover;
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
+      position: relative;
       text-align: center;
-      color: #fff;
-      text-shadow: 2px 2px 5px rgba(0,0,0,.7);
-      padding-top: 140px;
-      box-sizing: border-box;
+      color: white;
     }
-    .hero h1 { font-size: 3em; margin: 0 0 20px; }
-    .hero .cta {
-      background: #fbeec1;
-      border: 0; border-radius: 24px;
-      padding: 12px 32px;
-      font-size: 1.1em;
-      cursor: pointer;
-    }
-    .hero .cta:hover { background: #e5d8a8; }
 
-    /* ====== RESPONSIVE ====== */
-    @media (max-width: 1000px) {
-      .logo-img { height: 120px; }
-      .logo-wrap { margin-bottom: -22px; }
-      .hero { padding-top: 150px; }
+    .hero img {
+      width: 100%;
+      height: 90vh;
+      object-fit: cover;
     }
-    @media (max-width: 700px) {
-      .header-inner { flex-wrap: wrap; gap: 12px; }
-      .menu { width: 100%; justify-content: center; gap: 24px; padding-left: 0; }
-      .logo-img { height: 110px; }
-      .logo-wrap { margin-bottom: -18px; }
-      .hero h1 { font-size: 2.2em; }
-      .hero { padding-top: 160px; }
-      .menu > li { position: static; }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
-    @media (max-width: 480px) {
-      .menu { gap: 12px; }
-      .menu > li > a { font-size: 18px; }
-      .dropdown a { font-size: 16px; }
-      .hero h1 { font-size: 1.9em; }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
+
+    .hero-text .btn {
+      background: #fbeec1;
+      color: #333;
+      padding: 12px 30px;
+      font-size: 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .hero-text .btn:hover {
+      background: #fff3d4;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #a4b792;
+      text-align: center;
+      padding: 15px;
+      margin-top: 0;
+    }
+
+    footer a {
+      color: #fbeec1;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- v11 -->
+
+  <!-- HEADER -->
   <header>
-    <div class="container header-inner">
-      <div class="logo-wrap">
-        <img src="villalogo.png" alt="Inner Glow Villa Logo" class="logo-img" />
+    <img src="villalogo.png" alt="Inner Glow Villa Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="villa.html">The Villa</a>
+        <div class="dropdown-content">
+          <a href="#">The rooms</a>
+          <a href="#">The pool</a>
+          <a href="#">Outdoors</a>
+        </div>
       </div>
-
-      <nav aria-label="Primary">
-        <ul class="menu">
-          <!-- The Villa -->
-          <li tabindex="0">
-            <a href="#villa">The Villa</a>
-            <div class="dropdown">
-              <a href="#rooms">The rooms</a>
-              <a href="#pool">The pool</a>
-              <a href="#outdoors">Outdoors</a>
-            </div>
-          </li>
-
-          <!-- Airbnb -->
-          <li tabindex="0">
-            <a href="#airbnb">Airbnb</a>
-            <div class="dropdown">
-              <a href="#airbnb-1house">1 house</a>
-              <a href="#airbnb-2houses">2 houses</a>
-              <a href="#airbnb-attic">the Attick</a>
-            </div>
-          </li>
-
-          <!-- Retreats -->
-          <li tabindex="0">
-            <a href="#retreats">Retreats</a>
-            <div class="dropdown">
-              <a href="#retreats-group">Group</a>
-              <a href="#retreats-1to1">1 to one</a>
-            </div>
-          </li>
-
-          <!-- Activities -->
-          <li tabindex="0">
-            <a href="#activities">Activities</a>
-            <div class="dropdown">
-              <a href="#meditation">Meditation</a>
-              <a href="#yoga">Yoga</a>
-              <a href="#breath">Breath work</a>
-              <a href="#reiki">Reiki</a>
-            </div>
-          </li>
-
-          <!-- Location -->
-          <li><a href="#location">Location</a></li>
-
-          <!-- Prices -->
-          <li><a href="#prices">Prices</a></li>
-
-          <!-- Contact -->
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+      <div class="dropdown">
+        <a href="#">Airbnb</a>
+        <div class="dropdown-content">
+          <a href="#">1 house</a>
+          <a href="#">2 houses</a>
+          <a href="#">The Attic</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">Retreats</a>
+        <div class="dropdown-content">
+          <a href="#">Group</a>
+          <a href="#">1 to one</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">Activities</a>
+        <div class="dropdown-content">
+          <a href="#">Meditation</a>
+          <a href="#">Yoga</a>
+          <a href="#">Breath work</a>
+          <a href="#">Reiki</a>
+        </div>
+      </div>
+      <a href="#">Location</a>
+      <a href="#">Prices</a>
+      <a href="#">Contact</a>
+    </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="container">
+    <img src="villahero.png" alt="Villa Hero Image">
+    <div class="hero-text">
       <h1>Inner Glow Villa</h1>
-      <button class="cta">INQUIRY</button>
+      <a href="#" class="btn">Inquiry</a>
     </div>
   </section>
 
-  <!-- Placeholder sections -->
-  <section id="villa"></section>
-  <section id="rooms"></section>
-  <section id="pool"></section>
-  <section id="outdoors"></section>
-  <section id="airbnb"></section>
-  <section id="airbnb-1house"></section>
-  <section id="airbnb-2houses"></section>
-  <section id="airbnb-attic"></section>
-  <section id="retreats"></section>
-  <section id="retreats-group"></section>
-  <section id="retreats-1to1"></section>
-  <section id="activities"></section>
-  <section id="meditation"></section>
-  <section id="yoga"></section>
-  <section id="breath"></section>
-  <section id="reiki"></section>
-  <section id="location"></section>
-  <section id="prices"></section>
-  <section id="contact"></section>
+  <!-- FOOTER -->
+  <footer>
+    <a href="#">Terms & Conditions</a> | 
+    <a href="#">FAQs</a>
+  </footer>
 
-  <script>
-    // Υποστήριξη για touch (tap to open/close dropdown)
-    document.querySelectorAll('.menu > li').forEach(function(item){
-      item.addEventListener('touchstart', function(e){
-        var dd = item.querySelector('.dropdown');
-        if (dd) {
-          document.querySelectorAll('.dropdown').forEach(function(x){ if(x!==dd) x.style.display='none'; });
-          dd.style.display = (dd.style.display === 'block') ? 'none' : 'block';
-          e.preventDefault();
-        }
-      }, {passive:false});
-    });
-    document.addEventListener('click', function(e){
-      const inside = e.target.closest('.menu > li');
-      if (!inside) document.querySelectorAll('.dropdown').forEach(x=>x.style.display='none');
-    });
-  </script>
 </body>
 </html>
