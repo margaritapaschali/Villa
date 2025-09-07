@@ -21,4 +21,151 @@
       align-items:center; column-gap:40px; padding:20px 8px;
     }
     .logo-wrap{
-      backgrou
+      background:#fbeec1; border-radius:16px; padding:12px 18px;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
+      position:absolute; top:20px; left:20px;
+      transform: translateY(40%);
+    }
+    .logo-img{ max-height:140px; width:auto; }
+
+    nav{ width:100%; }
+    .menu{
+      list-style:none; margin:0; padding:0;
+      display:flex; justify-content:flex-end; gap:32px;
+    }
+    .menu>li{ position:relative; }
+    .menu>li>a{ color:#fbeec1; font-size:20px; letter-spacing:1px; white-space:nowrap; }
+    .menu>li>a:hover{ color:#fff; }
+
+    .dropdown{
+      display:none; position:absolute; top:100%; left:0;
+      background:#8fa27c; border-radius:10px; padding:10px 0; min-width:190px;
+      box-shadow:0 8px 24px rgba(0,0,0,.2);
+    }
+    .dropdown a{
+      display:block; padding:10px 16px; color:#fbeec1; font-size:18px;
+    }
+    .dropdown a:hover{ background:rgba(255,255,255,.1); color:#fff; }
+    .menu>li:hover .dropdown{ display:block; }
+
+    /* ===== MAIN CONTENT ===== */
+    main{ padding:140px 0 80px; } /* αφήνουμε χώρο κάτω από το header */
+    h1{ font-size:36px; margin-bottom:20px; }
+    .lead{ font-size:18px; line-height:1.6; max-width:900px; }
+
+    .cards{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:30px;
+      margin-top:40px;
+    }
+    .card{ position:relative; border-radius:12px; overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    }
+    .card img{ width:100%; height:260px; object-fit:cover; }
+    .card span{
+      position:absolute; bottom:16px; left:16px; color:#fff; font-size:24px; font-weight:bold;
+      text-shadow:0 4px 12px rgba(0,0,0,0.6);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      height:var(--footer-h); background:#a4b792; color:#fbeec1;
+      display:flex; align-items:center; justify-content:center; gap:20px;
+      font-size:14px; position:sticky; bottom:0;
+    }
+    footer a{ color:#fbeec1; }
+    footer a:hover{ color:#fff; text-decoration:underline; }
+
+    @media(max-width:900px){
+      .cards{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (ίδιο με index) -->
+  <header>
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <img src="villalogo.png" alt="Inner Glow Villa" class="logo-img">
+      </div>
+      <nav>
+        <ul class="menu">
+          <li>
+            <a href="villa.html">The Villa</a>
+            <div class="dropdown">
+              <a href="#rooms">The rooms</a>
+              <a href="#pool">The pool</a>
+              <a href="#outdoors">Outdoors</a>
+            </div>
+          </li>
+          <li>
+            <a href="airbnb.html">Airbnb</a>
+            <div class="dropdown">
+              <a href="airbnb.html#1house">1 house</a>
+              <a href="airbnb.html#2houses">2 houses</a>
+              <a href="airbnb.html#attic">The Attic</a>
+            </div>
+          </li>
+          <li>
+            <a href="retreats.html">Retreats</a>
+            <div class="dropdown">
+              <a href="retreats.html#group">Group</a>
+              <a href="retreats.html#1to1">1 to one</a>
+            </div>
+          </li>
+          <li>
+            <a href="activities.html">Activities</a>
+            <div class="dropdown">
+              <a href="activities.html#meditation">Meditation</a>
+              <a href="activities.html#yoga">Yoga</a>
+              <a href="activities.html#breath">Breath work</a>
+              <a href="activities.html#reiki">Reiki</a>
+            </div>
+          </li>
+          <li><a href="location.html">Location</a></li>
+          <li><a href="prices.html">Prices</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <h1>The Villa</h1>
+    <div class="lead">
+      <p>
+        Nestled within a 4-acre olive grove, Inner Glow Villa is a flexible hideaway of two
+        connected homes that can be enjoyed as one spacious property or as two
+        independent houses. With <strong>7 bedrooms, 5 bathrooms, 1 WC, 2 kitchens and 2 living rooms</strong>,
+        it is ideal for families, groups of friends or retreat gatherings.
+      </p>
+      <p>
+        Outdoors you’ll find a swimming <strong>pool</strong>, a <strong>BBQ</strong> corner and generous terraces
+        surrounded by olive trees — the perfect backdrop for long summer days and starry nights.
+      </p>
+    </div>
+
+    <div class="cards">
+      <div class="card" id="rooms">
+        <img src="villa-rooms.jpg" alt="Villa rooms">
+        <span>The Rooms</span>
+      </div>
+      <div class="card" id="pool">
+        <img src="villa-pool.jpg" alt="Villa pool">
+        <span>The Pool</span>
+      </div>
+      <div class="card" id="outdoors">
+        <img src="villa-outdoors.jpg" alt="Villa outdoors">
+        <span>Outdoors</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="terms.html">Terms & Conditions</a> | <a href="faqs.html">FAQs</a>
+  </footer>
+
+</body>
+</html>
