@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Inner Glow Villa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     /* ====== RESET / BASE ====== */
     html, body { margin:0; padding:0; font-family: Arial, sans-serif; }
     img { display:block; max-width:100%; height:auto; }
+    a { text-decoration: none; }
 
     .container {
       max-width: 1200px;
@@ -24,7 +26,7 @@
     }
     .header-inner {
       display: flex;
-      align-items: flex-end;       /* μενού στο κάτω μέρος */
+      align-items: flex-end;       /* τα links “κάτω” στη μπάρα */
       padding: 10px 0;
       gap: 32px;
     }
@@ -34,33 +36,63 @@
       background: #fbeec1;
       border-radius: 16px;
       padding: 10px 12px;
-      margin-bottom: -28px;
+      margin-bottom: -28px;        /* να “κρέμεται” */
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      margin-left: 0;              /* λογότυπο τέρμα αριστερά */
     }
-    .logo-img {
-      height: 140px;
-    }
+    .logo-img { height: 140px; }
 
-    /* Μενού */
-    nav {
+    /* ====== MENU (με dropdowns) ====== */
+    nav { flex: 1; }
+    .menu {
+      list-style: none;
       display: flex;
-      flex: 1;
       align-items: flex-end;
-      gap: 40px;
-      margin-left: 10px;           /* πιο κοντά στο logo */
+      gap: 40px;                  /* πιο απλωμένα */
+      margin: 0;
+      padding: 0 0 4px 10px;      /* λίγο πιο αριστερά & “κάτω” */
       flex-wrap: wrap;
     }
-    nav a {
-      text-decoration: none;
-      color: #fbeec1;              /* μπεζ */
-      font-weight: normal;         /* όχι bold */
-      font-size: 20px;             /* πιο μεγάλο */
-      white-space: nowrap;
-      padding-bottom: 4px;
-      letter-spacing: 1px;
+    .menu > li {
+      position: relative;         /* για τα dropdowns */
     }
-    nav a:hover { color: #fff; }
+    .menu > li > a {
+      color: #fbeec1;
+      font-weight: normal;        /* όχι bold */
+      font-size: 20px;            /* μεγαλύτερα γράμματα */
+      letter-spacing: 1px;
+      white-space: nowrap;
+      display: inline-block;
+      padding: 4px 0;
+    }
+    .menu > li > a:hover,
+    .menu > li:focus-within > a { color: #ffffff; }
+
+    /* Dropdown panel */
+    .dropdown {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 10px);
+      background: #8fa27c;        /* ελαφρώς πιο σκούρο από τη μπάρα για αντίθεση */
+      border-radius: 10px;
+      padding: 10px 0;
+      min-width: 200px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    /* εμφανίζεται σε hover/focus */
+    .menu > li:hover .dropdown,
+    .menu > li:focus-within .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      display: block;
+      color: #fbeec1;
+      font-size: 18px;
+      padding: 10px 16px;
+      white-space: nowrap;
+    }
+    .dropdown a:hover { background: rgba(255,255,255,0.08); color: #fff; }
 
     /* ====== HERO ====== */
     .hero {
@@ -70,7 +102,7 @@
       text-align: center;
       color: #fff;
       text-shadow: 2px 2px 5px rgba(0,0,0,.7);
-      padding-top: 140px;
+      padding-top: 140px;         /* χώρος για το fixed header */
       box-sizing: border-box;
     }
     .hero h1 { font-size: 3em; margin: 0 0 20px; }
@@ -87,47 +119,77 @@
     @media (max-width: 1000px) {
       .logo-img { height: 120px; }
       .logo-wrap { margin-bottom: -22px; }
-      nav a { font-size: 18px; }
       .hero { padding-top: 150px; }
     }
     @media (max-width: 700px) {
       .header-inner { flex-wrap: wrap; gap: 12px; }
-      nav { width: 100%; justify-content: center; margin-left: 0; gap: 24px; }
+      .menu { width: 100%; justify-content: center; gap: 24px; padding-left: 0; }
       .logo-img { height: 110px; }
       .logo-wrap { margin-bottom: -18px; }
       .hero h1 { font-size: 2.2em; }
       .hero { padding-top: 160px; }
+      /* dropdowns να μη “φεύγουν” εκτός κινητού – κέντρο */
+      .menu > li { position: static; }
+      .dropdown {
+        position: absolute;       /* κρατάμε absolute για καθαρότητα */
+      }
     }
     @media (max-width: 480px) {
-      nav { gap: 12px; }
-      nav a { font-size: 16px; }
+      .menu { gap: 12px; }
+      .menu > li > a { font-size: 18px; }
+      .dropdown a { font-size: 16px; }
       .hero h1 { font-size: 1.9em; }
     }
   </style>
 </head>
 <body>
-  <!-- v9 -->
+  <!-- v10 -->
   <header>
     <div class="container header-inner">
       <div class="logo-wrap">
         <img src="villalogo.png" alt="Inner Glow Villa Logo" class="logo-img" />
       </div>
-      <nav>
-        <a href="#villa">The Villa</a>
-        <a href="#airbnb">Airbnb</a>
-        <a href="#retreats">Retreats</a>
-        <a href="#activities">Activities</a>
-        <a href="#prices">Prices</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Inner Glow Villa</h1>
-      <button class="cta">INQUIRY</button>
-    </div>
-  </section>
-</body>
-</html>
+      <nav aria-label="Primary">
+        <ul class="menu">
+          <!-- The Villa -->
+          <li tabindex="0">
+            <a href="#villa">The Villa</a>
+            <div class="dropdown" role="menu" aria-label="The Villa submenu">
+              <a href="#rooms">The rooms</a>
+              <a href="#pool">The pool</a>
+              <a href="#outdoors">Outdoors</a>
+            </div>
+          </li>
+
+          <!-- Airbnb -->
+          <li tabindex="0">
+            <a href="#airbnb">Airbnb</a>
+            <div class="dropdown" role="menu" aria-label="Airbnb submenu">
+              <a href="#airbnb-1house">1 house</a>
+              <a href="#airbnb-2houses">2 houses</a>
+              <a href="#airbnb-attic">the Attick</a>
+            </div>
+          </li>
+
+          <!-- Retreats -->
+          <li tabindex="0">
+            <a href="#retreats">Retreats</a>
+            <div class="dropdown" role="menu" aria-label="Retreats submenu">
+              <a href="#retreats-group">Group</a>
+              <a href="#retreats-1to1">1 to one</a>
+            </div>
+          </li>
+
+          <!-- Activities -->
+          <li tabindex="0">
+            <a href="#activities">Activities</a>
+            <div class="dropdown" role="menu" aria-label="Activities submenu">
+              <a href="#meditation">Meditation</a>
+              <a href="#yoga">Yoga</a>
+              <a href="#breath">Breath work</a>
+              <a href="#reiki">Reiki</a>
+            </div>
+          </li>
+
+          <!-- Location (χωρίς submenu)
