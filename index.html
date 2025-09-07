@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  a {
-  color: #fbeec1;
-  text-decoration: none;
-}
-
-a:hover {
-  color: white;
-}
 <head>
   <meta charset="UTF-8">
   <title>Inner Glow Villa</title>
@@ -30,9 +22,19 @@ a:hover {
       position: relative;
     }
 
-    header img {
-      height: 100px;
-      margin-top: 20px; /* κάνει το logo να “βγαίνει” έξω από τη μπάρα */
+    .logo-box {
+      background: #fbeec1;
+      padding: 12px 20px;
+      border-radius: 20px;  /* κουρμπαριστές γωνίες */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      top: 20px;            /* κάνει το logo να εξέχει */
+    }
+
+    .logo-box img {
+      height: 80px;
+      width: auto;
+      display: block;
     }
 
     nav {
@@ -67,6 +69,8 @@ a:hover {
       min-width: 180px;
       z-index: 1000;
       padding: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
     .dropdown-content a {
@@ -78,6 +82,7 @@ a:hover {
 
     .dropdown-content a:hover {
       background-color: #8fa273;
+      color: white;
     }
 
     .dropdown:hover .dropdown-content {
@@ -140,6 +145,7 @@ a:hover {
 
     footer a:hover {
       text-decoration: underline;
+      color: white;
     }
   </style>
 </head>
@@ -147,7 +153,9 @@ a:hover {
 
   <!-- HEADER -->
   <header>
-    <img src="villalogo.png" alt="Inner Glow Villa Logo">
+    <div class="logo-box">
+      <img src="villalogo.png" alt="Inner Glow Villa Logo">
+    </div>
     <nav>
       <a href="index.html">Home</a>
       <div class="dropdown">
