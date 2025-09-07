@@ -1,94 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inner Glow Villa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      color: #333;
     }
 
     /* ===== HEADER ===== */
     header {
-  background-color: #a4b792;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px 22px;   /* + κάτω padding για το τμήμα που εξέχει */
-  position: relative;
-  z-index: 10;
-  overflow: visible;      /* σιγουρεύει ότι δεν κόβεται τίποτα */
-}
-
-    .logo-box {
-  background: #fbeec1;
-  padding: 12px 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  position: relative;
-  top: 20px;              /* κάνει το logo να εξέχει */
-  z-index: 11;            /* ΠΑΝΩ από το hero */
-}
-
-    .logo-box img {
-      height: 80px;
-      width: auto;
-      display: block;
+      position: relative;
+      background: #a4b792;
+      padding: 20px 0;
+      text-align: center;
     }
 
     nav {
-      display: flex;
-      gap: 30px;
-      align-items: flex-end;
-      margin-bottom: 10px;
+      display: inline-block;
+      margin-left: 250px; /* αφήνει χώρο για το logo */
     }
 
     nav a {
-      text-decoration: none;
       color: #fbeec1;
+      text-decoration: none;
+      margin: 0 20px;
       font-size: 20px;
-      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: white;
+      text-decoration: underline;
     }
 
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
+    /* ===== LOGO ===== */
+    .logo {
       position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #a4b792;
-      min-width: 180px;
-      z-index: 1000;
-      padding: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      top: -30px;   /* το κάνει να προεξέχει από τη μπάρα */
+      left: 40px;
+      background: #fbeec1;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    .dropdown-content a {
-      display: block;
-      padding: 8px 16px;
-      color: #fbeec1;
-      font-size: 18px;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #8fa273;
-      color: white;
-    }
-
-    .dropdown:hover .dropdown-content {
+    .logo img {
+      height: 80px;
       display: block;
     }
 
@@ -101,8 +59,8 @@
 
     .hero img {
       width: 100%;
-      height: 90vh;
-      object-fit: cover;
+      height: auto;
+      display: block;
     }
 
     .hero-text {
@@ -114,105 +72,71 @@
 
     .hero-text h1 {
       font-size: 48px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      margin: 0 0 20px;
     }
 
-    .hero-text .btn {
+    .hero-text a {
       background: #fbeec1;
       color: #333;
-      padding: 12px 30px;
-      font-size: 20px;
-      border-radius: 30px;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 18px;
       text-decoration: none;
-      transition: background 0.3s;
+      font-weight: bold;
     }
 
-    .hero-text .btn:hover {
+    .hero-text a:hover {
       background: #fff3d4;
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background-color: #a4b792;
+      background: #a4b792;
+      color: #fbeec1;
       text-align: center;
-      padding: 15px;
-      margin-top: 0;
+      padding: 15px 0;
+      font-size: 14px;
     }
 
     footer a {
       color: #fbeec1;
-      margin: 0 10px;
       text-decoration: none;
+      margin: 0 10px;
     }
 
     footer a:hover {
       text-decoration: underline;
-      color: white;
     }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
-    <div class="logo-box">
-      <img src="villalogo.png" alt="Inner Glow Villa Logo">
+    <div class="logo">
+      <img src="villalogo.png" alt="Inner Glow Villa" />
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <div class="dropdown">
-        <a href="villa.html">The Villa</a>
-        <div class="dropdown-content">
-          <a href="#">The rooms</a>
-          <a href="#">The pool</a>
-          <a href="#">Outdoors</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Airbnb</a>
-        <div class="dropdown-content">
-          <a href="#">1 house</a>
-          <a href="#">2 houses</a>
-          <a href="#">The Attic</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Retreats</a>
-        <div class="dropdown-content">
-          <a href="#">Group</a>
-          <a href="#">1 to one</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Activities</a>
-        <div class="dropdown-content">
-          <a href="#">Meditation</a>
-          <a href="#">Yoga</a>
-          <a href="#">Breath work</a>
-          <a href="#">Reiki</a>
-        </div>
-      </div>
-      <a href="#">Location</a>
-      <a href="#">Prices</a>
-      <a href="#">Contact</a>
+      <a href="villa.html">The Villa</a>
+      <a href="airbnb.html">Airbnb</a>
+      <a href="retreats.html">Retreats</a>
+      <a href="activities.html">Activities</a>
+      <a href="location.html">Location</a>
+      <a href="prices.html">Prices</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
-    <img src="villahero.png" alt="Villa Hero Image">
+    <img src="villahero.png" alt="Villa Hero" />
     <div class="hero-text">
       <h1>Inner Glow Villa</h1>
-      <a href="#" class="btn">Inquiry</a>
+      <a href="contact.html">Inquiry</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <a href="#">Terms & Conditions</a> | 
-    <a href="#">FAQs</a>
+    <a href="terms.html">Terms & Conditions</a> | 
+    <a href="faqs.html">FAQs</a>
   </footer>
-
 </body>
 </html>
