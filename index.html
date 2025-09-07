@@ -26,7 +26,7 @@
     }
     .header-inner {
       display: flex;
-      align-items: flex-end;       /* τα links “κάτω” στη μπάρα */
+      align-items: flex-end;
       padding: 10px 0;
       gap: 32px;
     }
@@ -36,7 +36,7 @@
       background: #fbeec1;
       border-radius: 16px;
       padding: 10px 12px;
-      margin-bottom: -28px;        /* να “κρέμεται” */
+      margin-bottom: -28px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
     .logo-img { height: 140px; }
@@ -47,18 +47,18 @@
       list-style: none;
       display: flex;
       align-items: flex-end;
-      gap: 40px;                  /* πιο απλωμένα */
+      gap: 40px;
       margin: 0;
-      padding: 0 0 4px 10px;      /* λίγο πιο αριστερά & “κάτω” */
+      padding: 0 0 4px 10px;
       flex-wrap: wrap;
     }
     .menu > li {
-      position: relative;         /* για τα dropdowns */
+      position: relative;
     }
     .menu > li > a {
       color: #fbeec1;
-      font-weight: normal;        /* όχι bold */
-      font-size: 20px;            /* μεγαλύτερα γράμματα */
+      font-weight: normal;
+      font-size: 20px;
       letter-spacing: 1px;
       white-space: nowrap;
       display: inline-block;
@@ -67,24 +67,22 @@
     .menu > li > a:hover,
     .menu > li:focus-within > a { color: #ffffff; }
 
-    /* Dropdown panel */
+    /* Dropdown */
     .dropdown {
       display: none;
       position: absolute;
       left: 0;
       top: calc(100% + 10px);
-      background: #8fa27c;        /* ελαφρώς πιο σκούρο από τη μπάρα για αντίθεση */
+      background: #8fa27c;
       border-radius: 10px;
       padding: 10px 0;
       min-width: 200px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    /* εμφανίζεται σε hover/focus */
     .menu > li:hover .dropdown,
     .menu > li:focus-within .dropdown {
       display: block;
     }
-
     .dropdown a {
       display: block;
       color: #fbeec1;
@@ -102,7 +100,7 @@
       text-align: center;
       color: #fff;
       text-shadow: 2px 2px 5px rgba(0,0,0,.7);
-      padding-top: 140px;         /* χώρος για το fixed header */
+      padding-top: 140px;
       box-sizing: border-box;
     }
     .hero h1 { font-size: 3em; margin: 0 0 20px; }
@@ -128,11 +126,7 @@
       .logo-wrap { margin-bottom: -18px; }
       .hero h1 { font-size: 2.2em; }
       .hero { padding-top: 160px; }
-      /* dropdowns να μη “φεύγουν” εκτός κινητού – κέντρο */
       .menu > li { position: static; }
-      .dropdown {
-        position: absolute;       /* κρατάμε absolute για καθαρότητα */
-      }
     }
     @media (max-width: 480px) {
       .menu { gap: 12px; }
@@ -143,7 +137,7 @@
   </style>
 </head>
 <body>
-  <!-- v10 -->
+  <!-- v11 -->
   <header>
     <div class="container header-inner">
       <div class="logo-wrap">
@@ -155,7 +149,7 @@
           <!-- The Villa -->
           <li tabindex="0">
             <a href="#villa">The Villa</a>
-            <div class="dropdown" role="menu" aria-label="The Villa submenu">
+            <div class="dropdown">
               <a href="#rooms">The rooms</a>
               <a href="#pool">The pool</a>
               <a href="#outdoors">Outdoors</a>
@@ -165,7 +159,7 @@
           <!-- Airbnb -->
           <li tabindex="0">
             <a href="#airbnb">Airbnb</a>
-            <div class="dropdown" role="menu" aria-label="Airbnb submenu">
+            <div class="dropdown">
               <a href="#airbnb-1house">1 house</a>
               <a href="#airbnb-2houses">2 houses</a>
               <a href="#airbnb-attic">the Attick</a>
@@ -175,7 +169,7 @@
           <!-- Retreats -->
           <li tabindex="0">
             <a href="#retreats">Retreats</a>
-            <div class="dropdown" role="menu" aria-label="Retreats submenu">
+            <div class="dropdown">
               <a href="#retreats-group">Group</a>
               <a href="#retreats-1to1">1 to one</a>
             </div>
@@ -184,7 +178,7 @@
           <!-- Activities -->
           <li tabindex="0">
             <a href="#activities">Activities</a>
-            <div class="dropdown" role="menu" aria-label="Activities submenu">
+            <div class="dropdown">
               <a href="#meditation">Meditation</a>
               <a href="#yoga">Yoga</a>
               <a href="#breath">Breath work</a>
@@ -192,4 +186,63 @@
             </div>
           </li>
 
-          <!-- Location (χωρίς submenu)
+          <!-- Location -->
+          <li><a href="#location">Location</a></li>
+
+          <!-- Prices -->
+          <li><a href="#prices">Prices</a></li>
+
+          <!-- Contact -->
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Inner Glow Villa</h1>
+      <button class="cta">INQUIRY</button>
+    </div>
+  </section>
+
+  <!-- Placeholder sections -->
+  <section id="villa"></section>
+  <section id="rooms"></section>
+  <section id="pool"></section>
+  <section id="outdoors"></section>
+  <section id="airbnb"></section>
+  <section id="airbnb-1house"></section>
+  <section id="airbnb-2houses"></section>
+  <section id="airbnb-attic"></section>
+  <section id="retreats"></section>
+  <section id="retreats-group"></section>
+  <section id="retreats-1to1"></section>
+  <section id="activities"></section>
+  <section id="meditation"></section>
+  <section id="yoga"></section>
+  <section id="breath"></section>
+  <section id="reiki"></section>
+  <section id="location"></section>
+  <section id="prices"></section>
+  <section id="contact"></section>
+
+  <script>
+    // Υποστήριξη για touch (tap to open/close dropdown)
+    document.querySelectorAll('.menu > li').forEach(function(item){
+      item.addEventListener('touchstart', function(e){
+        var dd = item.querySelector('.dropdown');
+        if (dd) {
+          document.querySelectorAll('.dropdown').forEach(function(x){ if(x!==dd) x.style.display='none'; });
+          dd.style.display = (dd.style.display === 'block') ? 'none' : 'block';
+          e.preventDefault();
+        }
+      }, {passive:false});
+    });
+    document.addEventListener('click', function(e){
+      const inside = e.target.closest('.menu > li');
+      if (!inside) document.querySelectorAll('.dropdown').forEach(x=>x.style.display='none');
+    });
+  </script>
+</body>
+</html>
