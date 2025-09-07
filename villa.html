@@ -12,23 +12,23 @@
       color: #333;
     }
 
-    /* Header */
+    /* Header όπως στην index */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       background: #a4b792;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
+      padding: 10px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
       position: relative;
-      top: 20px; /* εξέχει από την πράσινη μπάρα */
+      top: 20px;
       background: #fbeec1;
-      padding: 15px;
+      padding: 10px 20px;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
@@ -42,19 +42,37 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 40px;
+      gap: 35px;
       margin: 0;
       padding: 0;
-    }
-
-    nav ul li {
-      position: relative;
     }
 
     nav a {
       text-decoration: none;
       color: #fbeec1;
       font-size: 20px;
+      font-weight: normal;
+    }
+
+    /* Main content */
+    main {
+      max-width: 1000px;
+      margin: 120px auto 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    p strong {
+      font-weight: bold;
     }
 
     /* Footer */
@@ -73,27 +91,6 @@
 
     footer span {
       color: #fbeec1;
-    }
-
-    /* Main content */
-    main {
-      max-width: 1000px;
-      margin: 100px auto 40px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      line-height: 1.6;
-      font-size: 18px;
-    }
-
-    p strong {
-      font-weight: bold;
     }
   </style>
 </head>
