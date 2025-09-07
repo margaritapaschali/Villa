@@ -15,20 +15,29 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 40px;
+      padding: 10px 24px;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
+      overflow: visible; /* επιτρέπει στο logo να “κρεμάει” */
     }
     header img {
-      height: 60px;
+      height: 120px;           /* ~2x μεγαλύτερο */
+      margin-bottom: -24px;    /* το κάνει να εξέχει κάτω από τη μπάρα */
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;         /* για να μη βγαίνει εκτός */
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
     }
     nav a {
-      margin: 0 15px;
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      font-size: 18px;
     }
     nav a:hover {
       color: #1E4B3A;
@@ -44,7 +53,7 @@
       justify-content: center;
       color: white;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      padding-top: 80px; /* space for fixed header */
+      padding-top: 110px; /* χώρο για τη fixed μπάρα */
     }
     .hero h1 {
       font-size: 3em;
@@ -60,6 +69,18 @@
     }
     .hero button:hover {
       background-color: #e5d8a8;
+    }
+
+    /* Responsive για μικρές οθόνες */
+    @media (max-width: 900px) {
+      nav a { font-size: 16px; }
+      header img { height: 110px; margin-bottom: -20px; }
+    }
+    @media (max-width: 700px) {
+      header { flex-wrap: wrap; }
+      nav { width: 100%; margin-top: 6px; }
+      .hero { padding-top: 120px; }
+      .hero h1 { font-size: 2.2em; }
     }
   </style>
 </head>
