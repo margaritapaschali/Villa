@@ -1,116 +1,132 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Inner Glow Villa</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+    /* ====== RESET / BASE ====== */
+    html, body { margin:0; padding:0; font-family: Arial, sans-serif; }
+    img { display:block; max-width:100%; height:auto; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      box-sizing: border-box;
     }
 
-    /* Navigation */
+    /* ====== HEADER / NAV ====== */
     header {
       background-color: #a4b792;
-      display: flex;
-      align-items: center;
-      padding: 10px 24px;
-      position: fixed;
-      top: 0;
-      width: 100%;
+      position: fixed; top: 0; left: 0; right: 0;
       z-index: 1000;
       overflow: visible;
     }
-    header img {
-      height: 140px;
-      margin-bottom: -30px;
-      border-radius: 15px;
-      background-color: #fbeec1;
-      padding: 10px;
-      margin-right: 40px; /* απόσταση από το μενού */
+    .header-inner {
+      display: flex;
+      align-items: flex-end;            /* μενού στο κάτω μέρος */
+      padding: 10px 0;
+      gap: 32px;
     }
+
+    /* Logo */
+    .logo-wrap {
+      background: #fbeec1;
+      border-radius: 16px;
+      padding: 10px 12px;
+      margin-bottom: -28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .logo-img {
+      height: 140px;
+    }
+
+    /* Μενού */
     nav {
       display: flex;
+      flex: 1;
+      align-items: flex-end;
+      gap: 40px;                         /* πιο απλωμένα */
+      margin-left: 20px;
       flex-wrap: wrap;
-      gap: 24px;
-      align-items: center;
     }
     nav a {
       text-decoration: none;
-      color: #333;
+      color: #fbeec1;                    /* μπεζ χρώμα */
       font-weight: bold;
       font-size: 18px;
+      white-space: nowrap;
+      padding-bottom: 4px;               /* χαμηλά στη μπάρα */
+      letter-spacing: 1px;               /* αραιά γράμματα */
     }
-    nav a:hover { color: #1E4B3A; }
+    nav a:hover { color: #fff; }
 
-    /* Hero */
+    /* ====== HERO ====== */
     .hero {
       background: url('villahero.png') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,.7);
       padding-top: 140px;
+      box-sizing: border-box;
     }
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    .hero button {
-      background-color: #fbeec1;
-      border: none;
-      padding: 10px 30px;
-      border-radius: 20px;
-      font-size: 1.2em;
+    .hero h1 { font-size: 3em; margin: 0 0 20px; }
+    .hero .cta {
+      background: #fbeec1;
+      border: 0; border-radius: 24px;
+      padding: 12px 32px;
+      font-size: 1.1em;
       cursor: pointer;
     }
-    .hero button:hover { background-color: #e5d8a8; }
+    .hero .cta:hover { background: #e5d8a8; }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      header {
-        flex-wrap: wrap;
-      }
-      nav {
-        width: 100%;
-        justify-content: center; /* κέντρο σε μικρές οθόνες */
-        margin-top: 10px;
-      }
-      header img {
-        height: 120px;
-        margin-bottom: -20px;
-        margin-right: 0;
-      }
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 1000px) {
+      .logo-img { height: 120px; }
+      .logo-wrap { margin-bottom: -22px; }
       nav a { font-size: 16px; }
+      .hero { padding-top: 150px; }
+    }
+    @media (max-width: 700px) {
+      .header-inner { flex-wrap: wrap; gap: 12px; }
+      nav { width: 100%; justify-content: center; margin-left: 0; gap: 24px; }
+      .logo-img { height: 110px; }
+      .logo-wrap { margin-bottom: -18px; }
+      .hero h1 { font-size: 2.2em; }
       .hero { padding-top: 160px; }
     }
-
-    @media (max-width: 600px) {
+    @media (max-width: 480px) {
       nav { gap: 12px; }
       nav a { font-size: 14px; }
-      .hero h1 { font-size: 2em; }
+      .hero h1 { font-size: 1.9em; }
     }
   </style>
 </head>
 <body>
+  <!-- v8 -->
   <header>
-    <img src="villalogo.png" alt="Inner Glow Villa Logo">
-    <nav>
-      <a href="#villa">The Villa</a>
-      <a href="#airbnb">Airbnb</a>
-      <a href="#retreats">Retreats</a>
-      <a href="#prices">Prices</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container header-inner">
+      <div class="logo-wrap">
+        <img src="villalogo.png" alt="Inner Glow Villa Logo" class="logo-img" />
+      </div>
+      <nav>
+        <a href="#villa">The Villa</a>
+        <a href="#airbnb">Airbnb</a>
+        <a href="#retreats">Retreats</a>
+        <a href="#activities">Activities</a>
+        <a href="#prices">Prices</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
-    <h1>Inner Glow Villa</h1>
-    <button>INQUIRY</button>
+    <div class="container">
+      <h1>Inner Glow Villa</h1>
+      <button class="cta">INQUIRY</button>
+    </div>
   </section>
 </body>
 </html>
