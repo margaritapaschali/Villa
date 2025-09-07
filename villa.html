@@ -4,56 +4,57 @@
   <meta charset="UTF-8" />
   <title>The Villa | Inner Glow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body { margin:0; font-family: Arial, sans-serif; background:#f8f8f8; color:#333; }
-    header { background:#a4b792; padding:10px 20px; display:flex; align-items:center; justify-content:space-between; }
-    header img { height:80px; }
-    nav ul { list-style:none; margin:0; padding:0; display:flex; gap:20px; }
-    nav a { color:#fbeec1; text-decoration:none; font-size:18px; }
-    nav a:hover { color:#fff; }
-    .section { max-width:1000px; margin:40px auto; padding:0 20px; }
-    .cards { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
-    .card { position:relative; flex:1 1 300px; max-width:300px; overflow:hidden; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
-    .card img { width:100%; height:200px; object-fit:cover; }
-    .card span { position:absolute; bottom:12px; left:12px; color:#fff; background:rgba(0,0,0,.45); padding:6px 10px; border-radius:6px; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <img src="villalogo.png" alt="Inner Glow Villa Logo">
-    <nav>
-      <ul>
-        <li><a href="/Villa/villa.html">The Villa</a></li>
-        <li><a href="/Villa/airbnb.html">Airbnb</a></li>
-        <li><a href="/Villa/retreats.html">Retreats</a></li>
-        <li><a href="/Villa/activities.html">Activities</a></li>
-        <li><a href="/Villa/location.html">Location</a></li>
-        <li><a href="/Villa/prices.html">Prices</a></li>
-        <li><a href="/Villa/contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container header-inner">
+      <div class="logo-wrap"><img src="villalogo.png" alt="Inner Glow Villa" class="logo-img" /></div>
+      <nav aria-label="Primary">
+        <ul class="menu">
+          <li><a href="/Villa/index.html">Home</a></li>
+          <li><a href="/Villa/villa.html">The Villa</a></li>
+          <li><a href="/Villa/airbnb.html">Airbnb</a></li>
+          <li><a href="/Villa/retreats.html">Retreats</a></li>
+          <li><a href="/Villa/activities.html">Activities</a></li>
+          <li><a href="/Villa/location.html">Location</a></li>
+          <li><a href="/Villa/prices.html">Prices</a></li>
+          <li><a href="/Villa/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="section">
+  <main class="section container">
     <h1>The Villa</h1>
-    <p>
-      Nestled within a 4-acre olive grove, Inner Glow Villa is a unique retreat designed to offer both comfort and flexibility...
-    </p>
+    <div class="text-block">
+      <p>
+        Nestled within a 4-acre olive grove, Inner Glow Villa is a flexible hideaway of two
+        connected homes that can be enjoyed as one spacious property or split into two
+        independent houses. With <strong>7 bedrooms, 5 bathrooms, 1 WC, 2 kitchens and 2 living rooms</strong>,
+        it comfortably hosts families, groups of friends or retreat participants.
+      </p>
+      <p>
+        Outside, the olive trees set a tranquil scene for long lunches and slow evenings.
+        Swim in the <strong>pool</strong>, fire up the <strong>BBQ</strong> and make memories across the generous
+        outdoor spaces.
+      </p>
+    </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="villa-rooms.jpg" alt="Villa Rooms">
-        <span>The rooms</span>
+    <div class="cards" style="margin-top:28px">
+      <div id="rooms" class="card">
+        <img src="villa-rooms.jpg" alt="Villa rooms" />
+        <span class="label">The rooms</span>
       </div>
-      <div class="card">
-        <img src="villa-pool.jpg" alt="Villa Pool">
-        <span>The pool</span>
+      <div id="pool" class="card">
+        <img src="villa-pool.jpg" alt="Villa pool" />
+        <span class="label">The pool</span>
       </div>
-      <div class="card">
-        <img src="villa-outdoors.jpg" alt="Villa Outdoors">
-        <span>Outdoors</span>
+      <div id="outdoors" class="card">
+        <img src="villa-outdoors.jpg" alt="Villa outdoors" />
+        <span class="label">Outdoors</span>
       </div>
     </div>
-  </section>
+  </main>
 </body>
 </html>
