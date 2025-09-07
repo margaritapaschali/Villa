@@ -1,95 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Inner Glow Villa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { margin:0; font-family: Arial, sans-serif; display:flex; flex-direction:column; min-height:100vh; }
-    header { background:#a4b792; display:flex; align-items:center; padding:10px 40px; }
-    header img { height:80px; margin-right:40px; }
-    nav { flex-grow:1; }
-    nav ul { list-style:none; display:flex; justify-content:flex-start; gap:30px; margin:0; padding:0; }
-    nav ul li { display:inline; }
-    nav ul li a {
-      text-decoration:none; 
-      color:#fbeec1; 
-      font-size:20px; 
-      font-weight:normal;
+    /* ---------- Base ---------- */
+    :root{
+      /* εκτιμώμενα ύψη για να χωράει και το footer χωρίς scroll */
+      --header-h: 130px;
+      --footer-h: 56px;
     }
-    .hero {
-      position:relative;
-      text-align:center;
-      flex:1;
-    }
-    .hero img {
-      width:100%;
-      height:90vh;
-      object-fit:cover;
-    }
-    .hero h1 {
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      color:white;
-      font-size:48px;
-      text-shadow:2px 2px 8px rgba(0,0,0,0.6);
-    }
-    .hero a.button {
-      position:absolute;
-      top:65%;
-      left:50%;
-      transform:translate(-50%, -50%);
+    html, body { margin:0; padding:0; font-family: Arial, sans-serif; color:#333; }
+    img { display:block; max-width:100%; height:auto; }
+    a { text-decoration:none; }
+
+    /* layout ώστε να φαίνεται το footer */
+    body { min-height:100vh; display:flex; flex-direction:column; }
+
+    .container { max-width:1200px; margin:0 auto; padding:0 16px; box-sizing:border-box; }
+
+    /* ---------- Header / Menu ---------- */
+    header { background:#a4b792; overflow:visible; }
+    .header-inner { display:flex; align-items:flex-end; padding:10px 0; gap:32px; }
+
+    /* mpez “καρτελάκι” για το λογότυπο, χωρίς παραμόρφωση */
+    .logo-wrap{
       background:#fbeec1;
-      padding:12px 24px;
-      border-radius:25px;
-      text-decoration:none;
-      color:#333;
-      font-weight:bold;
+      border-radius:16px;
+      padding:10px 12px;
+      margin-bottom:-28px;                 /* να “κρέμεται” λίγο */
+      box-shadow:0 4px 10px rgba(0,0,0,.08);
     }
-    footer {
-      background:#a4b792;
-      color:#fbeec1;
-      text-align:center;
-      padding:15px;
-      font-size:14px;
+    .logo-img{
+      height:140px;                         /* ίδιο όπως πριν */
+      width:auto;                           /* για να μην “χαλάει” */
     }
-    footer a {
-      color:#fbeec1;
-      margin:0 10px;
-      text-decoration:none;
+
+    nav{ flex:1; }
+    .menu{
+      list-style:none; display:flex; align-items:flex-end;
+      gap:28px; margin:0; padding:0 0 4px 10px; flex-wrap:nowrap; /* πάντα μία σειρά */
     }
-    footer a:hover {
-      text-decoration:underline;
+    .menu>li>a{
+      color:#fbeec1; font-weight:normal; font-size:20px; letter-spacing:1px;
+      white-space:nowrap; display:inline-block; padding:4px 0;
+    }
+    .menu>li>a:hover{ color:#fff; }
+
+    /* ---------- Hero που τελειώνει ακριβώς στην οθόνη ΜΑΖΙ με header+footer ---------- */
+    .hero{
+      background:url('villahero.png') no-repeat center center/cover;
+      height: calc(100vh - var(--header-h) - var(--footer-h));
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; color:#fff; text-shadow:2px 2px 5px rgba(0,0,0,.7);
+    }
+    .hero h1{ font-size:3em; margin:0 0 20px; }
+    .cta{
+      background:#fbeec1; border:0; border-radius:24px;
+      padding:12px 32px; font-size:1.1em; cursor:pointer;
+    }
+    .cta:hover{ background:#e5d8a8; }
+
+    /* ---------- Footer ---------- */
+    footer{
+      background:#a4b792; color:#fbeec1; text-align:center;
+      padding:14px 10px; font-size:14px;
+    }
+    footer a{ color:#fbeec1; margin:0 10px; }
+    footer a:hover{ text-decoration:underline; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:1100px){ .menu>li>a{ font-size:18px; } }
+    @media (max-width:700px){
+      .header-inner{ flex-wrap:wrap; gap:12px; }
+      .menu{ width:100%; justify-content:center; }
+      .logo-img{ height:110px; }
+      .logo-wrap{ margin-bottom:-18px; }
+      /* λίγο μεγαλύτερο header/ footer σε κινητό */
+      :root{ --header-h: 150px; --footer-h: 64px; }
+      .hero h1{ font-size:2.2em; }
     }
   </style>
 </head>
 <body>
+  <!-- HOME -->
   <header>
-    <img src="villalogo.png" alt="Inner Glow Villa Logo">
-    <nav>
-      <ul>
-        <li><a href="villa.html">The Villa</a></li>
-        <li><a href="airbnb.html">Airbnb</a></li>
-        <li><a href="retreats.html">Retreats</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="location.html">Location</a></li>
-        <li><a href="prices.html">Prices</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container header-inner">
+      <div class="logo-wrap">
+        <img src="villalogo.png" alt="Inner Glow Villa" class="logo-img" />
+      </div>
+      <nav aria-label="Primary">
+        <ul class="menu">
+          <li><a href="/Villa/villa.html">The Villa</a></li>
+          <li><a href="/Villa/airbnb.html">Airbnb</a></li>
+          <li><a href="/Villa/retreats.html">Retreats</a></li>
+          <li><a href="/Villa/activities.html">Activities</a></li>
+          <li><a href="/Villa/location.html">Location</a></li>
+          <li><a href="/Villa/prices.html">Prices</a></li>
+          <li><a href="/Villa/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
-    <img src="villahero.png" alt="Inner Glow Villa">
-    <h1>Inner Glow Villa</h1>
-    <a href="contact.html" class="button">INQUIRY</a>
+    <div class="container">
+      <h1>Inner Glow Villa</h1>
+      <button class="cta">INQUIRY</button>
+    </div>
   </section>
 
   <footer>
-    <a href="terms.html">Terms & Conditions</a> | 
-    <a href="faqs.html">FAQs</a>
+    <a href="/Villa/terms.html">Terms & Conditions</a> | <a href="/Villa/faqs.html">FAQs</a>
   </footer>
 </body>
 </html>
