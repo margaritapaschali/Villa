@@ -10,8 +10,8 @@
     a { text-decoration:none; }
 
     :root{
-      --header-h: 110px;   /* ύψος header */
-      --footer-h: 60px;    /* ύψος footer */
+      --header-h: 110px;
+      --footer-h: 60px;
     }
 
     .container { max-width:1200px; margin:0 auto; padding:0 16px; box-sizing:border-box; }
@@ -20,26 +20,43 @@
     header { background:#a4b792; position:relative; z-index:10; }
     .header-inner { display:flex; align-items:flex-end; justify-content:space-between; }
 
-    /* Logo “κάρτα” που εξέχει */
     .logo-wrap{
       background:#fbeec1;
       border-radius:16px;
       padding:12px 18px;
       box-shadow:0 4px 12px rgba(0,0,0,.1);
       position:relative;
-      top:25px;           /* κάνει το logo να εξέχει έξω από τη μπάρα */
+      top:25px;
       margin-left:40px;
     }
     .logo-img{ height:140px; width:auto; }
 
     nav{ flex:1; display:flex; justify-content:flex-end; }
-    .menu{
-      list-style:none; display:flex; gap:36px; margin:0; padding:30px 40px 20px 0;
-    }
-    .menu>li>a{
-      color:#fbeec1; font-size:20px; font-weight:normal; letter-spacing:1px;
-    }
+    .menu{ list-style:none; display:flex; gap:36px; margin:0; padding:30px 40px 20px 0; }
+    .menu>li{ position:relative; }
+    .menu>li>a{ color:#fbeec1; font-size:20px; font-weight:normal; letter-spacing:1px; white-space:nowrap; }
     .menu>li>a:hover{ color:#fff; }
+
+    /* ---------- Dropdown ---------- */
+    .dropdown{
+      display:none;
+      position:absolute;
+      top:100%; left:0;
+      background:#8fa27c;
+      border-radius:8px;
+      padding:10px 0;
+      min-width:180px;
+      box-shadow:0 4px 12px rgba(0,0,0,.2);
+    }
+    .dropdown a{
+      display:block;
+      padding:8px 16px;
+      color:#fbeec1;
+      font-size:18px;
+    }
+    .dropdown a:hover{ background:rgba(255,255,255,.1); color:#fff; }
+    .menu>li:hover .dropdown,
+    .menu>li:focus-within .dropdown{ display:block; }
 
     /* ---------- Hero ---------- */
     .hero{
@@ -55,11 +72,10 @@
     }
     .hero a.btn:hover{ background:#fff; }
 
-    /* ---------- Footer (sticky) ---------- */
+    /* ---------- Footer ---------- */
     footer{
       height:var(--footer-h); background:#a4b792; color:#fbeec1;
       display:flex; justify-content:center; align-items:center;
-      position:sticky; bottom:0; width:100%;
       font-size:14px; gap:24px;
     }
     footer a{ color:#fbeec1; }
@@ -76,11 +92,38 @@
       </div>
       <nav>
         <ul class="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="villa.html">The Villa</a></li>
-          <li><a href="airbnb.html">Airbnb</a></li>
-          <li><a href="retreats.html">Retreats</a></li>
-          <li><a href="activities.html">Activities</a></li>
+          <li>
+            <a href="villa.html">The Villa</a>
+            <div class="dropdown">
+              <a href="villa.html#rooms">The rooms</a>
+              <a href="villa.html#pool">The pool</a>
+              <a href="villa.html#outdoors">Outdoors</a>
+            </div>
+          </li>
+          <li>
+            <a href="airbnb.html">Airbnb</a>
+            <div class="dropdown">
+              <a href="airbnb.html#1house">1 house</a>
+              <a href="airbnb.html#2houses">2 houses</a>
+              <a href="airbnb.html#attic">The Attic</a>
+            </div>
+          </li>
+          <li>
+            <a href="retreats.html">Retreats</a>
+            <div class="dropdown">
+              <a href="retreats.html#group">Group</a>
+              <a href="retreats.html#1to1">1 to one</a>
+            </div>
+          </li>
+          <li>
+            <a href="activities.html">Activities</a>
+            <div class="dropdown">
+              <a href="activities.html#meditation">Meditation</a>
+              <a href="activities.html#yoga">Yoga</a>
+              <a href="activities.html#breath">Breath work</a>
+              <a href="activities.html#reiki">Reiki</a>
+            </div>
+          </li>
           <li><a href="location.html">Location</a></li>
           <li><a href="prices.html">Prices</a></li>
           <li><a href="contact.html">Contact</a></li>
