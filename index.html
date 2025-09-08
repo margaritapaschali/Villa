@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inner Glow Villa</title>
   <meta name="description" content="Inner Glow Villa — Airbnb stays and Retreats." />
+
   <style>
     :root{
       --green:#9FB48F;      /* header & dropdown */
@@ -12,20 +13,29 @@
       --paper:#faf1c9;      /* logo tile color */
       --maxw:1200px;
     }
+
     *{box-sizing:border-box}
     html,body{margin:0}
-    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#222;line-height:1.5}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:#222; line-height:1.5;
+    }
 
-    /* Header */
+    /* ===== Header ===== */
     .site-header{
       position:sticky; top:0; z-index:1000;
       background:var(--green);
       box-shadow:0 2px 8px rgba(0,0,0,.08);
     }
-    .nav-wrap{max-width:var(--maxw); margin:auto; position:relative; padding:26px 16px 12px}
+    .nav-wrap{
+      max-width:var(--maxw); margin:auto; position:relative;
+      padding:26px 16px 12px;
+    }
+
+    /* Brand / Logo tile */
     .brand{
       position:absolute; left:16px; top:0;
-      transform: translateY(-15%); /* push it to hang below the bar */
+      transform: translateY(-15%);   /* κάνει το logo να “κρεμιέται” */
       z-index:2;
     }
     .brand a{
@@ -34,12 +44,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,.18);
       text-decoration:none;
     }
-    .brand img{display:block; height:86px; width:auto} /* bigger logo */
+    .brand img{display:block; height:86px; width:auto;} /* μεγαλύτερο logo */
 
-    /* Desktop nav */
+    /* ===== Nav ===== */
     .nav{
       display:flex; gap:36px; align-items:center; justify-content:flex-end;
-      padding-left:260px; /* room for the floating logo */
+      padding-left:260px; /* χώρος για το floating logo */
     }
     .nav > li{list-style:none; position:relative}
     .nav > li > button,
@@ -51,25 +61,27 @@
     .nav > li > a:hover,
     .nav > li > button:hover{opacity:.9}
 
-    /* Dropdown panel (same color as header) */
+    /* Dropdown (ίδιο χρώμα με header) */
     .menu-panel{
       position:absolute; left:0; top:100%;
       min-width:230px; padding:8px 0; margin-top:12px;
-      background:var(--green); border-radius:14px; box-shadow:0 16px 30px rgba(0,0,0,.15);
+      background:var(--green); border-radius:14px;
+      box-shadow:0 16px 30px rgba(0,0,0,.15);
       display:none;
     }
     .menu-panel a{
-      display:block; padding:12px 16px; text-decoration:none; color:#111; font-size:16px; font-weight:500;
+      display:block; padding:12px 16px; text-decoration:none;
+      color:#111; font-size:16px; font-weight:500;
     }
     .menu-panel a:hover{background:rgba(255,255,255,.25)}
     .nav > li[aria-expanded="true"] .menu-panel{display:block}
 
-    /* Hero */
+    /* ===== Hero με τίτλο + CTA ===== */
     .hero{position:relative}
     .hero img{width:100%; height:68vh; object-fit:cover; display:block}
     .hero .overlay{
-      position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
-      text-align:center; padding:0 16px;
+      position:absolute; inset:0; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; text-align:center; padding:0 16px;
       background:linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.35));
     }
     .hero h1{
@@ -86,29 +98,40 @@
     .cta:hover{filter:brightness(0.98)}
     .cta:active{transform:translateY(1px)}
 
-    /* Footer */
+    /* ===== Footer ===== */
     .site-footer{padding:18px 16px; background:#111; color:#ddd}
-    .foot-wrap{max-width:var(--maxw); margin:auto; display:flex; gap:16px; justify-content:space-between; align-items:center; flex-wrap:wrap}
+    .foot-wrap{
+      max-width:var(--maxw); margin:auto; display:flex; gap:16px;
+      justify-content:space-between; align-items:center; flex-wrap:wrap;
+    }
     .site-footer a{color:#ddd; text-decoration:none}
     .site-footer a:hover{text-decoration:underline}
 
-    /* Mobile */
+    /* ===== Mobile ===== */
     .hamburger{display:none; position:absolute; right:16px; top:14px}
     .hamburger button{
-      background:#fff; border:0; border-radius:10px; padding:10px 12px; box-shadow:0 6px 16px rgba(0,0,0,.15);
-      font-size:16px
+      background:#fff; border:0; border-radius:10px; padding:10px 12px;
+      box-shadow:0 6px 16px rgba(0,0,0,.15); font-size:16px;
     }
+
     @media (max-width: 900px){
       .brand img{height:74px}
-      .nav{display:none; position:absolute; right:16px; left:16px; top:100%; padding:12px; background:#fff; border-radius:16px; box-shadow:0 16px 30px rgba(0,0,0,.15); flex-direction:column; gap:6px}
+      .nav{
+        display:none; position:absolute; right:16px; left:16px; top:100%;
+        padding:12px; background:#fff; border-radius:16px;
+        box-shadow:0 16px 30px rgba(0,0,0,.15); flex-direction:column; gap:6px;
+        padding-left:0;
+      }
+      .nav.open{display:flex}
       .nav > li{width:100%}
       .nav > li > a, .nav > li > button{width:100%; text-align:left; padding:12px 10px; color:#222}
-      .menu-panel{position:relative; left:auto; top:auto; margin:6px 0 10px; border:1px solid #eee; background:#fff}
+      .menu-panel{
+        position:relative; left:auto; top:auto; margin:6px 0 10px;
+        border:1px solid #eee; background:var(--green);
+      }
       .hamburger{display:block}
-      .nav.open{display:flex}
       .nav-wrap{padding:22px 16px 18px}
       .brand{transform:none}
-      .nav{padding-left:0}
     }
   </style>
 </head>
@@ -205,51 +228,41 @@
     // Mobile hamburger
     const toggleBtn = document.getElementById('menuToggle');
     const nav = document.getElementById('primaryNav');
-    toggleBtn.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggleBtn.setAttribute('aria-expanded', String(open));
-      document.querySelectorAll('.has-panel').forEach(li => li.setAttribute('aria-expanded','false'));
-    });
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', String(open));
+        document.querySelectorAll('.has-panel').forEach(li => li.setAttribute('aria-expanded','false'));
+      });
+    }
 
-    // Dropdown logic:
-    // - Open on hover (mouseenter)
-    // - Do NOT close on mouseleave
-    // - Close when hovering another top item or clicking outside / pressing Esc.
+    // Dropdown: open on hover, stay open; close όταν πας αλλού
     const parents = document.querySelectorAll('.has-panel');
-
     function closeAll(except=null){
       parents.forEach(li => { if(li !== except) li.setAttribute('aria-expanded','false'); });
     }
-
     parents.forEach(li => {
       const btn = li.querySelector('button');
-
-      // open on hover
+      // Open on hover
       li.addEventListener('mouseenter', () => {
         closeAll(li);
         li.setAttribute('aria-expanded','true');
       });
-
-      // also toggle on click (for accessibility / touchpads)
+      // Toggle on click (για touch)
       btn.addEventListener('click', (e) => {
         const isOpen = li.getAttribute('aria-expanded') === 'true';
         closeAll(li);
         li.setAttribute('aria-expanded', String(!isOpen));
       });
-
-      // keyboard support
-      btn.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape'){ closeAll(); btn.focus(); }
-      });
+      // ESC
+      btn.addEventListener('keydown', (e) => { if(e.key === 'Escape'){ closeAll(); btn.focus(); } });
     });
-
-    // Click outside closes all
+    // Click έξω
     document.addEventListener('click', (e) => {
       const inside = e.target.closest('.has-panel') || e.target.closest('#primaryNav') || e.target.closest('#menuToggle');
-      if(!inside){ closeAll(); nav.classList.remove('open'); toggleBtn.setAttribute('aria-expanded','false'); }
+      if(!inside){ closeAll(); nav?.classList.remove('open'); toggleBtn?.setAttribute('aria-expanded','false'); }
     });
-
-    // Close on Esc anywhere
+    // ESC anywhere
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape'){ closeAll(); } });
   </script>
 </body>
