@@ -15,11 +15,12 @@
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0; padding:0}
+    html,body{margin:0; padding:0; height:100%; background:#111;} /* σκοτεινό φόντο για να μη φαίνεται λευκή λωρίδα */
     body{
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       color:#222; line-height:1.5;
     }
+    img{display:block; max-width:100%;} /* αποφεύγει κενά γύρω από εικόνες */
 
     /* ===== Header ===== */
     .site-header{
@@ -30,12 +31,13 @@
     .nav-wrap{
       max-width:var(--maxw); margin:auto; position:relative;
       padding:26px 16px 12px;
+      background:var(--green);
     }
 
     /* Brand / Logo tile */
     .brand{
       position:absolute; left:16px; top:0;
-      transform: translateY(100%);   /* κάνει το logo να κρέμεται */
+      transform: translateY(12%);   /* πιο ΠΑΝΩ από πριν, αλλά εξακολουθεί να κρέμεται λίγο */
       z-index:2;
     }
     .brand a{
@@ -44,12 +46,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,.18);
       text-decoration:none;
     }
-    .brand img{display:block; height:110px; width:auto;} /* πιο μεγάλο logo */
+    .brand img{height:110px; width:auto;} /* μεγάλο logo */
 
     /* ===== Nav ===== */
     .nav{
       display:flex; gap:36px; align-items:center; justify-content:flex-end;
-      padding-left:300px; /* περισσότερο χώρο για το logo */
+      padding-left:280px; /* χώρος για το logo (μικρότερο από πριν γιατί το ανεβάσαμε) */
     }
     .nav > li{list-style:none; position:relative}
     .nav > li > button,
@@ -78,7 +80,7 @@
 
     /* ===== Hero με τίτλο + CTA ===== */
     .hero{position:relative; margin:0;}
-    .hero img{width:100%; height:68vh; object-fit:cover; display:block; line-height:0;}
+    .hero img{width:100%; height:68vh; object-fit:cover; line-height:0;}
     .hero .overlay{
       position:absolute; inset:0; display:flex; flex-direction:column;
       align-items:center; justify-content:center; text-align:center; padding:0 16px;
