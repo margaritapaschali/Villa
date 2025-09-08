@@ -1,142 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inner Glow Villa</title>
+  <meta name="description" content="Inner Glow Villa — Airbnb stays and Retreats." />
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+    :root{
+      --green:#9FB48F;      /* header bar */
+      --ink:#243028;        /* text on nav */
+      --paper:#FBF5D6;      /* logo tile */
+      --maxw:1200px;
     }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:#222; line-height:1.5}
 
-    /* ===== HEADER ===== */
-    header {
-      position: relative;
-      background: #a4b792;
-      padding: 20px 0;
-      text-align: center;
+    /* Header */
+    .site-header{
+      position: sticky; top:0; z-index:1000;
+      background: var(--green);
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
     }
-
-    nav {
-      display: inline-block;
-      margin-left: 250px; /* αφήνει χώρο για το logo */
+    .nav-wrap{max-width:var(--maxw); margin:auto; position:relative; padding:18px 16px}
+    .brand{
+      position:absolute; left:16px; top:10px;
+      transform: translateY(-20%);
     }
-
-    nav a {
-      color: #fbeec1;
-      text-decoration: none;
-      margin: 0 20px;
-      font-size: 20px;
+    .brand a{
+      display:inline-block; background: var(--paper);
+      padding:22px 26px; border-radius:22px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.15);
+      text-decoration:none;
     }
+    .brand img{display:block; height:72px; width:auto}
 
-    nav a:hover {
-      text-decoration: underline;
+    /* Desktop nav */
+    .nav{
+      display:flex; gap:32px; align-items:center; justify-content:flex-end;
+      padding-left:220px; /* room for the floating logo */
     }
-
-    /* ===== LOGO ===== */
-    .logo {
-      position: absolute;
-      top: -30px;   /* το κάνει να προεξέχει από τη μπάρα */
-      left: 40px;
-      background: #fbeec1;
-      padding: 15px 25px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    .nav > li{list-style:none; position:relative}
+    .nav > li > button,
+    .nav > li > a{
+      background:none; border:0; padding:10px 0; cursor:pointer;
+      font-size:18px; letter-spacing:.3px; color:var(--ink);
+      text-decoration:none;
     }
+    .nav > li > a:hover,
+    .nav > li > button:hover{opacity:.8}
 
-    .logo img {
-      height: 80px;
-      display: block;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .hero-text h1 {
-      font-size: 48px;
-      margin: 0 0 20px;
-    }
-
-    .hero-text a {
-      background: #fbeec1;
-      color: #333;
-      padding: 10px 25px;
-      border-radius: 25px;
-      font-size: 18px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .hero-text a:hover {
-      background: #fff3d4;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #a4b792;
-      color: #fbeec1;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: #fbeec1;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">
-      <img src="villalogo.png" alt="Inner Glow Villa" />
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="villa.html">The Villa</a>
-      <a href="airbnb.html">Airbnb</a>
-      <a href="retreats.html">Retreats</a>
-      <a href="activities.html">Activities</a>
-      <a href="location.html">Location</a>
-      <a href="prices.html">Prices</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <img src="villahero.png" alt="Villa Hero" />
-    <div class="hero-text">
-      <h1>Inner Glow Villa</h1>
-      <a href="contact.html">Inquiry</a>
-    </div>
-  </section>
-
-  <footer>
-    <a href="terms.html">Terms & Conditions</a> | 
-    <a href="faqs.html">FAQs</a>
-  </footer>
-</body>
-</html>
+    /* Dropdown panel */
+    .menu-panel{
+      posi
