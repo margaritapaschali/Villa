@@ -53,4 +53,204 @@
 
     /* Dropdown panel */
     .menu-panel{
-      posi
+      position:absolute; left:0; top:100%;
+      min-width:220px; padding:10px 0; margin-top:10px;
+      background:#fff; border-radius:14px; box-shadow: 0 16px 30px rgba(0,0,0,.15);
+      display:none;
+    }
+    .menu-panel a{
+      display:block; padding:10px 16px; text-decoration:none; color:#222; font-size:16px;
+    }
+    .menu-panel a:hover{background:#f6f6f6}
+    .nav > li[aria-expanded="true"] .menu-panel{display:block}
+
+    /* Hero */
+    .hero{position:relative}
+    .hero img{width:100%; height:60vh; object-fit:cover; display:block}
+    .hero .overlay{
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.35));
+      color:#fff; text-align:center; padding:0 16px;
+    }
+    .hero h1{font-weight:700; font-size:clamp(28px, 5vw, 48px); margin:0}
+
+    /* Content placeholder */
+    .container{max-width:var(--maxw); margin:32px auto; padding:0 16px}
+    .lead{font-size:1.125rem}
+
+    /* Footer */
+    .site-footer{
+      margin-top:48px; padding:20px 16px; background:#111; color:#ddd;
+    }
+    .site-footer .foot-wrap{max-width:var(--maxw); margin:auto; display:flex; gap:16px; justify-content:space-between; align-items:center; flex-wrap:wrap}
+    .site-footer a{color:#ddd; text-decoration:none}
+    .site-footer a:hover{text-decoration:underline}
+
+    /* Mobile */
+    .hamburger{display:none; position:absolute; right:16px; top:14px}
+    .hamburger button{
+      background:#fff; border:0; border-radius:10px; padding:10px 12px; box-shadow:0 6px 16px rgba(0,0,0,.15);
+      font-size:16px
+    }
+    @media (max-width: 900px){
+      .brand img{height:60px}
+      .nav{display:none; position:absolute; right:16px; left:16px; top:100%; padding:12px; background:#fff; border-radius:16px; box-shadow:0 16px 30px rgba(0,0,0,.15); flex-direction:column; gap:6px}
+      .nav > li{width:100%}
+      .nav > li > a, .nav > li > button{width:100%; text-align:left; padding:12px 10px; color:#222}
+      .menu-panel{position:relative; left:auto; top:auto; margin:6px 0 10px; border:1px solid #eee}
+      .hamburger{display:block}
+      .nav.open{display:flex}
+      .nav-wrap{padding:18px 16px 22px 16px}
+      .brand{transform:none; top:8px}
+      .nav{padding-left:0}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="nav-wrap">
+      <div class="brand">
+        <a href="index.html" aria-label="Go to homepage">
+          <img src="villalogo.png" alt="Inner Glow Villa logo" />
+        </a>
+      </div>
+
+      <div class="hamburger" aria-hidden="false">
+        <button id="menuToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+      </div>
+
+      <nav role="navigation" aria-label="Main">
+        <ul class="nav" id="primaryNav">
+          <!-- The Villa -->
+          <li class="has-panel" aria-haspopup="true" aria-expanded="false">
+            <button type="button" data-menu="villa">The Villa</button>
+            <div class="menu-panel" role="menu" aria-label="The Villa submenu">
+              <a role="menuitem" href="the-villa.html">Overview</a>
+              <a role="menuitem" href="the-rooms.html">The Rooms</a>
+              <a role="menuitem" href="the-pool.html">The Pool</a>
+              <a role="menuitem" href="outdoor.html">Outdoor</a>
+            </div>
+          </li>
+
+          <!-- Airbnb -->
+          <li class="has-panel" aria-haspopup="true" aria-expanded="false">
+            <button type="button" data-menu="airbnb">Airbnb</button>
+            <div class="menu-panel" role="menu" aria-label="Airbnb submenu">
+              <a role="menuitem" href="airbnb-entire-villa.html">Entire Villa</a>
+              <a role="menuitem" href="airbnb-one-house.html">One House</a>
+              <a role="menuitem" href="airbnb-second-house.html">Second House</a>
+            </div>
+          </li>
+
+          <!-- Retreats -->
+          <li class="has-panel" aria-haspopup="true" aria-expanded="false">
+            <button type="button" data-menu="retreats">Retreats</button>
+            <div class="menu-panel" role="menu" aria-label="Retreats submenu">
+              <a role="menuitem" href="retreats-group.html">Group retreat</a>
+              <a role="menuitem" href="retreats-1to1.html">1 to 1 retreat</a>
+            </div>
+          </li>
+
+          <!-- Activities -->
+          <li class="has-panel" aria-haspopup="true" aria-expanded="false">
+            <button type="button" data-menu="activities">Activities</button>
+            <div class="menu-panel" role="menu" aria-label="Activities submenu">
+              <a role="menuitem" href="activities-excursions.html">Excursions</a>
+              <a role="menuitem" href="activities-boat-trips.html">Boat trips</a>
+              <a role="menuitem" href="activities-melissani.html">Melissani</a>
+            </div>
+          </li>
+
+          <!-- Singles -->
+          <li><a href="location.html">Location</a></li>
+          <li><a href="prices.html">Prices</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero image">
+    <img src="villahero.png" alt="Inner Glow Villa hero" />
+    <div class="overlay">
+      <h1>Welcome to Inner Glow Villa</h1>
+    </div>
+  </section>
+
+  <!-- Content (placeholder) -->
+  <main class="container">
+    <p class="lead">
+      A serene villa for memorable stays and transformative retreats in Kefalonia.
+    </p>
+    <p>
+      Use the navigation above to explore the villa, Airbnb options, retreats, activities, location,
+      prices and how to contact us.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="foot-wrap">
+      <small>© <span id="year"></span> Inner Glow Villa</small>
+      <nav aria-label="Footer">
+        <a href="terms.html">Terms &amp; Conditions</a> &nbsp;•&nbsp;
+        <a href="faqs.html">FAQs</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile hamburger
+    const toggleBtn = document.getElementById('menuToggle');
+    const nav = document.getElementById('primaryNav');
+    toggleBtn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', String(open));
+      // collapse any open dropdowns on open/close
+      document.querySelectorAll('.has-panel').forEach(li => li.setAttribute('aria-expanded','false'));
+    });
+
+    // Dropdown logic: click to toggle; DO NOT close on mouseleave.
+    const root = document.documentElement;
+    const menuItems = document.querySelectorAll('.has-panel > button');
+    const parents = document.querySelectorAll('.has-panel');
+
+    function closeAll(except=null){
+      parents.forEach(li => {
+        if(li !== except) li.setAttribute('aria-expanded','false');
+      });
+    }
+
+    menuItems.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const li = e.currentTarget.closest('.has-panel');
+        const isOpen = li.getAttribute('aria-expanded') === 'true';
+        closeAll(li);
+        li.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      // keyboard support
+      btn.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape'){ closeAll(); btn.focus(); }
+      });
+    });
+
+    // Click outside closes all
+    document.addEventListener('click', (e) => {
+      const inside = e.target.closest('.has-panel') || e.target.closest('#primaryNav') || e.target.closest('#menuToggle');
+      if(!inside){ closeAll(); nav.classList.remove('open'); toggleBtn.setAttribute('aria-expanded','false'); }
+    });
+
+    // Opening another category closes previous (handled by closeAll in click handler)
+
+    // Close on Esc anywhere
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape'){ closeAll(); } });
+  </script>
+</body>
+</html>
