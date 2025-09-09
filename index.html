@@ -15,12 +15,13 @@
     }
 
     *{box-sizing:border-box}
-    html,body{margin:1; padding:0; height:100%; background:#111;} /* σκοτεινό φόντο για να μη φαίνεται λευκή λωρίδα */
+    /* FIX: βγάζουμε το μαύρο πλαίσιο */
+    html,body{margin:0; padding:0; height:100%; background:#fff;}
     body{
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       color:#222; line-height:1.5;
     }
-    img{display:block; max-width:100%;} /* αποφεύγει κενά γύρω από εικόνες */
+    img{display:block; max-width:100%;}
 
     /* ===== Header ===== */
     .site-header{
@@ -37,7 +38,7 @@
     /* Brand / Logo tile */
     .brand{
       position:absolute; left:16px; top:0;
-      transform: translateY(12%);   /* πιο ΠΑΝΩ από πριν, αλλά εξακολουθεί να κρέμεται λίγο */
+      transform: translateY(12%);   /* κρέμεται λίγο από το header */
       z-index:2;
     }
     .brand a{
@@ -46,12 +47,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,.18);
       text-decoration:none;
     }
-    .brand img{height:110px; width:auto;} /* μεγάλο logo */
+    .brand img{height:110px; width:auto;}
 
     /* ===== Nav ===== */
     .nav{
       display:flex; gap:36px; align-items:center; justify-content:flex-end;
-      padding-left:280px; /* χώρος για το logo (μικρότερο από πριν γιατί το ανεβάσαμε) */
+      padding-left:280px; /* χώρος για το logo */
     }
     .nav > li{list-style:none; position:relative}
     .nav > li > button,
